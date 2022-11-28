@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<faculties>
+    <faculty>
+        <name>Interesting faculty</name>
+        <requirement>220</requirement>
+        <disciplines>
+            <discipline>Math</discipline>
+            <discipline>Language</discipline>
+            <discipline>Physics</discipline>
+        </disciplines>
+    </faculty>
+</faculties>

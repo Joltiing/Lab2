@@ -1,6 +1,6 @@
-import WorkingDirectory.*;
-
-import java.util.HashMap;
+import FileHelpers.JsonHelper;
+import FileHelpers.PdfHelper;
+import WorkingDirectory.workingDirectory;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -25,18 +25,17 @@ public class Main {
     }
 
     public static void MessageDemo() throws Exception {
+        /*
         var results=new HashMap<String,Integer>();
         results.put("Math", 99);
         results.put("Physics",99);
         results.put("Language",99);
-        var disciplines = new String[]{
-                "Math",
-                "Physics",
-                "Language"
-        };
+
         var student = new Student("John",results);
-        var faculty = new Faculty("Interesting faculty", 220,disciplines);
-        PdfHelper.saveTo("message.pdf",student.SendMessage(faculty));
+        */
+        var students= JsonHelper.readStudents("src/students.json");
+        var faculties = JsonHelper.readFaculties("src/faculties.json");
+        PdfHelper.saveTo("message.pdf",students.get(0).SendMessage(faculties.get(0)));
     }
 }
 

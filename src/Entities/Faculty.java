@@ -1,3 +1,5 @@
+package Entities;
+
 public class Faculty {
     public int _passScore;
 

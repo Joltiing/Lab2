@@ -1,13 +1,15 @@
+package Entities;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Student {
-    public static String _name;
+    public String _name;
 
-    public Map<String,Integer> _results;
+    public HashMap<String, Integer> _results;
 
-    public Student(String name, HashMap<String,Integer> results) throws Exception {
+    public Student(String name, HashMap<String, Integer> results) throws Exception {
         if(name.isEmpty()){
             throw new Exception("Empty name");
         }
@@ -21,11 +23,11 @@ public class Student {
     }
 
     public String SendMessage(Faculty from){
-        Map<String,Integer> filteredResults = new HashMap<String,Integer>();
+        Map<String, Integer> filteredResults = new HashMap<>();
         var scoreSum = 0;
         for (var result : _results.keySet()) {
-            if(Arrays.stream(from._disciplines).anyMatch(element -> element== result)){
-                filteredResults.put(result,_results.get(result));
+            if(Arrays.asList(from._disciplines).contains(result)){
+                filteredResults.put(result, _results.get(result));
                 scoreSum+=_results.get(result);
             }
         }
